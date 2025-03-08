@@ -290,6 +290,7 @@
             <option value="google">Google</option>
             <option value="bing">Bing</option>
             <option value="yandex">Yandex</option>
+            <option value="openai">OpenAI</option>
           </select>
           <br />
           <p>
@@ -300,6 +301,7 @@
             <option value="bing">Bing</option>
             <option value="yandex">Yandex</option>
             <option value="deepl">DeepL</option>
+            <option value="openai">OpenAI</option>
           </select>
           <br />
           <p>
@@ -600,6 +602,16 @@
           <button id="addDeepL">Add DeepL Free API</button>
           <button id="removeDeepL">Remove DeepL Free API</button>
           <p id="deeplApiResponse"></p>
+        </div>
+        <hr>
+        <div>
+          <h3>Configure OpenAI API key for text translation using GPT models.</h3>
+          <label for="openaiKEY">Your OpenAI API key</label><br>
+          <input type="text" id="openaiKEY" placeholder="sk-..." style="width: 90%;"
+            autocomplete="off" spellcheck="false"><br>
+          <br>
+          <button id="saveOpenAIKey">Save OpenAI API Key</button>
+          <p id="openaiApiResponse"></p>
         </div>
         <hr>
         <div>

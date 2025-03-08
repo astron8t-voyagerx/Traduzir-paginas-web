@@ -1462,6 +1462,32 @@ twpConfig
       });
     }
 
+    $("#saveOpenAIKey").onclick = () => {
+      const apiKey = $("#openaiKEY").value.trim();
+
+      if (!apiKey) {
+        $("#openaiApiResponse").textContent = "API 키를 입력해주세요.";
+        return;
+      }
+
+      // API 키 형식 검증 (sk-로 시작하는지)
+      if (!apiKey.startsWith("sk-")) {
+        $("#openaiApiResponse").textContent =
+          "유효하지 않은 API 키 형식입니다. 'sk-'로 시작해야 합니다.";
+        return;
+      }
+
+      // API 키 저장
+      twpConfig.set("openaiApiKey", apiKey);
+      $("#openaiApiResponse").textContent = "API 키가 저장되었습니다.";
+    };
+
+    // 저장된 OpenAI API 키 불러오기
+    const savedOpenAIKey = twpConfig.get("openaiApiKey");
+    if (savedOpenAIKey) {
+      $("#openaiKEY").value = savedOpenAIKey;
+    }
+
     $("#showMobilePopupOnDesktop").onchange = (e) => {
       twpConfig.set("showMobilePopupOnDesktop", e.target.value);
     };
@@ -1517,7 +1543,7 @@ twpConfig
 
       $("#googleTranslateProxyServer").value = "";
       $("#googleTtsProxyServer").value = "";
-    }
+    };
 
     const googleProxy = twpConfig.get("proxyServers").google;
     if (googleProxy) {
